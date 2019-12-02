@@ -1,0 +1,55 @@
+name:                aoc2019
+version:             0.1.0.0
+github:              pigam/aoc2019
+license:             GPL3
+author:              Pierre Gambarotto
+maintainer:          pierre.gambarotto@math.univ-toulouse.fr
+copyright:           2019 Pierre Gambarotto
+
+extra-source-files:
+- readme.org
+- changelog.org
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/pigam/aoc2019#readme>
+
+dependencies:
+- base >= 4.11 && < 10
+- rio >= 0.1.8.0
+
+data-files:
+- inputs/*.txt
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: lib
+  generated-other-modules: Paths_aoc2019
+
+executables:
+  day1:
+    main:                Day1.hs
+    source-dirs:         src
+    dependencies:
+    - aoc2019
+    - optparse-simple
+    other-modules:
+      - Paths_aoc2019
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day1
